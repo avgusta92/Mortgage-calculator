@@ -22,8 +22,8 @@ a {
 header {
   height: 480px;
   width: 100%;
-  background-color: #21d4fd;
-  background-image: linear-gradient(19deg, #21d4fd 0%, #6f21ff 100%);
+  background-color: #141e30;
+  background-image: linear-gradient(to right, #141e30, #243b55);
   z-index: -100;
   text-align: center;
   color: white; }
@@ -61,7 +61,7 @@ main {
     display: flex; }
     main .calc-wrap .calc {
       width: 65%;
-      padding-right: 40px; }
+      padding-left: 40px; }
       main .calc-wrap .calc .input-area-wrap {
         color: rgba(0, 0, 0, 0.75);
         font-weight: 200; }
@@ -130,13 +130,15 @@ main {
           width: 100%; }
       main .calc-wrap .calc .submit-button-wrap .submit-button {
         border-radius: 4px;
-        background-image: linear-gradient(19deg, #2053dd 0%, #6f21ff 100%);
+        background-color: #1341c0;
         border: none;
         padding: 20px 40px;
         font-size: 17px;
         color: white; }
     main .calc-wrap .something {
-      background-color: rgba(0, 0, 0, 0.061);
+      background-image: url("/img/calculator.png");
+      background-repeat: no-repeat;
+      background-position: right;
       width: 35%; }
   main .tabl-box-wrap {
     display: none;

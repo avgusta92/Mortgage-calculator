@@ -26,10 +26,7 @@
         <div class="heading-text">
             <h1 class="heading-text-h1">Самый лучший в мире калькулятор</h1>
             <p class="heading-text-p">
-                Разнообразный и богатый опыт дальнейшее развитие различных форм деятельности
-                представляет собой интересный эксперимент проверки форм развития.
-                Повседневная практика показывает, что новая модель организационной
-                деятельности требуют от нас анализа направлений прогрессивного развития.
+                Калькулятор позволяет рассчитать ежемесячные платежи при оформлении кредита. Ты можешь изменять значения процентной ставки и срока выплаты. С помощь этого калькулятора, также возможно просчитать результат ежемесячного платежа если процентная ставка для каждого года разная.
             </p>
         </div>
 
@@ -37,25 +34,24 @@
 
     <main>
         <div class="calc-wrap">
+            <div class="something"></div>
+            
             <div class="calc">
 
                 <div class="input-area-wrap">
 
-                    <!-- ******** СТОИМОСТЬ НЕДВИЖЕМОСТИ ******** -->
                     <div class="input-area price-area">
                         <h3 class="input-heading">Стоимость недвижемости:</h3>
                         <input class="input-plaсe input-price" id='input-price' placeholder="Напишите полную сумму"
                             required type="number"></input>
                     </div>
 
-                    <!-- ******** ПЕРВЫЙ ВЗНОС ******** -->
                     <div class="input-area down-payment-area">
                         <h3 class="input-heading">Ваш первый взнос:</h3>
                         <input class="input-plaсe input-down-payment" id='input-down-payment'
                             placeholder="Напишите сумму первого взноса" required type="number"></input>
                     </div>
 
-                    <!-- ******** СРОК КРЕДИТА ******** -->
                     <div class="input-area years-area">
                         <h3 class="input-heading">Срок кредита:</h3>
 
@@ -77,11 +73,9 @@
                         </div>
                     </div>
 
-                    <!-- ******** ПРОЦЕНТ ПО КРЕДИТУ ******** -->
                     <div class="input-area percent">
                         <h3 class="input-heading">Процент по кредиту:</h3>
 
-                        <!-- чек бокс (если для каждого года разный процент) -->
                         <div class="checkbox-percent-wrap">
                             <input id="checkbox-percent-input" class="checkbox-percent-input" type="checkbox"
                                 onclick="onCheckboxSelected(this)"></input>
@@ -91,13 +85,11 @@
 
                         <div class="input-percent-wrap" id="input-percent-wrap">
 
-                            <!-- инпут – если процент одинаковый -->
                             <div class="input-percent-one-wrap" id='input-percent-one-wrap'>
                                 <input class="input-plaсe input-percent input-percent-one" id="input-percent-one"
                                     type="number" placeholder="Годовой"></input>
                             </div>
 
-                            <!-- инпуты – если процент для каждого года разный -->
                             <div class="input-percent-many-wrap" id='input-percent-many-wrap'>
                                 <div class="percent-many-wrap" id="percent-many-wrap">
                                     <input class="input-plaсe input-percent input-percent-many"
@@ -109,20 +101,14 @@
                     </div>
                 </div>
 
-                <!-- ******** КНОПКА РАССЧИТАТЬ ******** -->
                 <div class="submit-button-wrap">
                     <button type="submit" class="submit-button" id="submit-button"
                         onclick="onSubmit()">Рассчитать</button>
                 </div>
 
             </div>
-
-            <!-- ******** ДОПОЛНИТЕЛЬНОЕ МЕСТО СПРАВА ОТ КАЛЬКУЛЯТОРА ******** -->
-            <!-- **** (для картинки или банерной рекламы) **** -->
-            <div class="something"></div>
         </div>
 
-        <!-- ******** ТАБЛИЦА С РАССЧИТАННЫМИ РЕЗУЛЬТАТАМИ ******** -->
         <div class="tabl-box-wrap" id="tabl-box-wrap">
 
             <div class="tabl-box">
