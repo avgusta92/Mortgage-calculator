@@ -136,7 +136,7 @@ main {
         font-size: 17px;
         color: white; }
     main .calc-wrap .something {
-      background-image: url("/img/calculator.png");
+      background-image: url("img/calculator.png");
       background-repeat: no-repeat;
       background-position: right;
       width: 35%; }
