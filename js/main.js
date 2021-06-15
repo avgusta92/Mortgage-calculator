@@ -1,6 +1,3 @@
-/************************ INPUT AREA *************************/
-
-// Создает инпуты для ввода разных процентов для разных годов
 function inputsForPercents() {
     let onCheckboxSelected = document.getElementById('checkbox-percent-input');
     let inputYears = Number(document.getElementById('input-years').value);
@@ -14,7 +11,6 @@ function inputsForPercents() {
             tabl[lastInput].remove();
         }
 
-        // Создает новые инпуты
         for (let input = 1; input < inputYears; input++) {
             let inputPercentsCln = inputPercentMany0.cloneNode(true);
             inputPercentsCln.id = 'input-percent-many-' + input;
@@ -29,10 +25,8 @@ function inputsForPercents() {
             tabl[lastInput].remove();
         }
     }
-
 }
 
-// Функция добавляет к сроку кредита слова: год/ года/ лет в output
 function inputYearsFunction() {
     let inputYears = Number(document.getElementById('input-years').value);
     let outputYears;
@@ -50,7 +44,6 @@ function inputYearsFunction() {
     inputsForPercents();
 }
 
-// Функция которая выполняетсяя при нажатом чекбоксе 
 function onCheckboxSelected(element) {
     let inputPercentsOneWrap = document.getElementById('input-percent-one-wrap');
     let inputPercentsManyWrap = document.getElementById('input-percent-many-wrap');
@@ -67,9 +60,6 @@ function onCheckboxSelected(element) {
     inputsForPercents();
 }
 
-/************************ SUBMIT AREA *************************/
-
-// Обработчик на кнопку что бы увидеть результат
 function onSubmit() {
     let inputPercentMany0 = inputPercentsArray();
     let resultCalculator = calculator(inputPercentMany0);
@@ -83,7 +73,6 @@ function onSubmit() {
     renderTable(resultCalculator);
 }
 
-// Функция которая принимает и возвращает значение разных процентов для каждого года
 function inputPercentsArray() {
     let result = [];
     let inputYears = Number(document.getElementById('input-years').value);
@@ -105,7 +94,6 @@ function inputPercentsArray() {
     return result;
 }
 
-// Считает ежемесячный платеж (тело кредита + процент) для разных процентных ставок для каждого года, создает массив
 function calculator(inputPercentsArray) {
     let result = [];
 
@@ -141,22 +129,17 @@ function calculator(inputPercentsArray) {
     }
 
     return result;
-
 }
-
 
 function renderTable(resultCalculator) {
 
-    // Делаем таблицу видемой
     let tableBoxWrap = document.getElementById('tabl-box-wrap');
     tableBoxWrap.style.display = 'inline-block';
 
     let inputYears = Number(document.getElementById('input-years').value);
     let resultMonthsValue = inputYears * 12;
 
-    // Создаем таблицу и сетаем значения в таблицу
     for (let months = 0; months < resultMonthsValue; months++) {
-
         let newTable = document.createElement('tr');
         newTable.id = 'tabl-result-wrap' + months;
         newTable.className = 'tabl-result-wrap';
@@ -185,6 +168,5 @@ function renderTable(resultCalculator) {
         resultMonthPayment.className = 'result payment-result';
         resultMonthPayment.innerHTML = parseInt(resultCalculator[months]['resultMonthPayment']);
         document.getElementById('tabl-result-wrap' + months).appendChild(resultMonthPayment);
-
     }
 }
