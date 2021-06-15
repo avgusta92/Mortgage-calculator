@@ -4,7 +4,6 @@ function inputsForPercents() {
     let inputPercentMany0 = document.getElementById('input-percent-many-0');
     let tabl = document.getElementById("percent-many-wrap").children;
 
-
     if (onCheckboxSelected.checked === true) {
         // Удаляет старые инпуты 
         for (let lastInput = tabl.length - 1; lastInput >= 1; lastInput--) {
