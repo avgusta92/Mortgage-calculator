@@ -5,7 +5,7 @@ function inputsForPercents() {
     let tabl = document.getElementById("percent-many-wrap").children;
 
     if (onCheckboxSelected.checked === true) {
-        // Удаляет старые инпуты 
+        // Deletes old inputs 
         for (let lastInput = tabl.length - 1; lastInput >= 1; lastInput--) {
             tabl[lastInput].remove();
         }
@@ -14,12 +14,12 @@ function inputsForPercents() {
             let inputPercentsCln = inputPercentMany0.cloneNode(true);
             inputPercentsCln.id = 'input-percent-many-' + input;
             inputPercentsCln.value = null;
-            inputPercentsCln.placeholder = [input + 1] + " год";
+            inputPercentsCln.placeholder = [input + 1] + " рік";
             document.getElementById("percent-many-wrap").appendChild(inputPercentsCln);
         }
 
     } else {
-        // Удаляет старые инпуты (что бы засетать еденичный импут)
+        // Deletes old inputs (to define a single input)
         for (let lastInput = tabl.length - 1; lastInput >= 1; lastInput--) {
             tabl[lastInput].remove();
         }
@@ -31,11 +31,11 @@ function inputYearsFunction() {
     let outputYears;
 
     if (inputYears === 1) {
-        outputYears = " год";
+        outputYears = " рік";
     } else if (inputYears === 2 || inputYears === 3 || inputYears === 4) {
-        outputYears = " года";
+        outputYears = " роки";
     } else {
-        outputYears = " лет";
+        outputYears = " років";
     }
 
     document.getElementById("output-years").innerHTML = inputYears + outputYears;
@@ -63,7 +63,7 @@ function onSubmit() {
     let inputPercentMany0 = inputPercentsArray();
     let resultCalculator = calculator(inputPercentMany0);
 
-    // Удаляем таблицу
+    // Delete the table
     let tabl = document.getElementById('tabl').children;
     for (let months = tabl.length - 1; months >= 1; months--) {
         tabl[months].remove();
@@ -147,7 +147,7 @@ function renderTable(resultCalculator) {
         let tableMonthResult = document.createElement('td');
         tableMonthResult.id = 'month-result';
         tableMonthResult.className = 'result month-result';
-        tableMonthResult.innerHTML = (months + 1) + " месяц";
+        tableMonthResult.innerHTML = (months + 1) + " місяць";
         document.getElementById('tabl-result-wrap' + months).appendChild(tableMonthResult);
 
         let resultMonthBody = document.createElement('td');
