@@ -16,7 +16,7 @@
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="js/main.js" type="text/javascript"></script>
-    <title>Калькулятор</title>
+    <title>Іпотечний калькулятор</title>
 </head>
 
 <body>
@@ -25,13 +25,13 @@
 
         <div class="heading">
             <div class="heading-logo">
-                Calculator
+                Mortgage Calculator
             </div>
         </div>
         <div class="heading-text">
-            <h1 class="heading-text-h1">Самый лучший в мире калькулятор</h1>
+            <h1 class="heading-text-h1">Іпотечний калькулятор</h1>
             <p class="heading-text-p">
-                Калькулятор позволяет рассчитать ежемесячные платежи при оформлении кредита. Ты можешь изменять значения процентной ставки и срока выплаты. С помощь этого калькулятора, также возможно просчитать результат ежемесячного платежа если процентная ставка для каждого года разная.
+                Калькулятор дозволяє розрахувати щомісячні платежі під час оформлення кредиту. Ти можеш змінювати значення процентної ставки та строку виплати. За допомогою цього калькулятора також можна прорахувати результат щомісячного платежу, якщо процентна ставка для кожного року різна.
             </p>
         </div>
 
@@ -46,19 +46,19 @@
                 <div class="input-area-wrap">
 
                     <div class="input-area price-area">
-                        <h3 class="input-heading">Стоимость недвижемости:</h3>
-                        <input class="input-plaсe input-price" id='input-price' placeholder="Напишите полную сумму"
+                        <h3 class="input-heading">Вартість нерухомості:</h3>
+                        <input class="input-plaсe input-price" id='input-price' placeholder="Напишіть повну суму"
                             required type="number"></input>
                     </div>
 
                     <div class="input-area down-payment-area">
-                        <h3 class="input-heading">Ваш первый взнос:</h3>
+                        <h3 class="input-heading">Ваш перший внесок:</h3>
                         <input class="input-plaсe input-down-payment" id='input-down-payment'
-                            placeholder="Напишите сумму первого взноса" required type="number"></input>
+                            placeholder="Напишіть суму першого внеску" required type="number"></input>
                     </div>
 
                     <div class="input-area years-area">
-                        <h3 class="input-heading">Срок кредита:</h3>
+                        <h3 class="input-heading">Строк кредиту:</h3>
 
                         <div class="input-output-years-wrap">
 
@@ -66,39 +66,39 @@
                                 <input class="input-years" id='input-years' oninput="inputYearsFunction()" type="range"
                                     list="tickmarks" min="1" max="20" step="1" value="5" required></input>
                                 <datalist id="tickmarks">
-                                    <option value="1" label="1 год">
-                                    <option value="20" label="20 лет">
+                                    <option value="1" label="1 рік">
+                                    <option value="20" label="20 років">
                                 </datalist>
                             </div>
 
                             <div class="output-years-wrap">
-                                <output class="output-years" id="output-years" for="input-years">5 лет</output>
+                                <output class="output-years" id="output-years" for="input-years">5 років</output>
                             </div>
 
                         </div>
                     </div>
 
                     <div class="input-area percent">
-                        <h3 class="input-heading">Процент по кредиту:</h3>
+                        <h3 class="input-heading">Відсоток за кредитом:</h3>
 
                         <div class="checkbox-percent-wrap">
                             <input id="checkbox-percent-input" class="checkbox-percent-input" type="checkbox"
                                 onclick="onCheckboxSelected(this)"></input>
-                            <label for="checkbox-percent-input" class="checkbox-percent-label">Разный для каждого
-                                года</label>
+                            <label for="checkbox-percent-input" class="checkbox-percent-label">Різний для кожного
+                                 року</label>
                         </div>
 
                         <div class="input-percent-wrap" id="input-percent-wrap">
 
                             <div class="input-percent-one-wrap" id='input-percent-one-wrap'>
                                 <input class="input-plaсe input-percent input-percent-one" id="input-percent-one"
-                                    type="number" placeholder="Годовой"></input>
+                                    type="number" placeholder="Річний"></input>
                             </div>
 
                             <div class="input-percent-many-wrap" id='input-percent-many-wrap'>
                                 <div class="percent-many-wrap" id="percent-many-wrap">
                                     <input class="input-plaсe input-percent input-percent-many"
-                                        id="input-percent-many-0" type="number" placeholder="1 год"></input>
+                                        id="input-percent-many-0" type="number" placeholder="1 рік"></input>
                                 </div>
                             </div>
 
@@ -108,7 +108,7 @@
 
                 <div class="submit-button-wrap">
                     <button type="submit" class="submit-button" id="submit-button"
-                        onclick="onSubmit()">Рассчитать</button>
+                        onclick="onSubmit()">Розрахувати</button>
                 </div>
 
             </div>
@@ -121,10 +121,10 @@
                 <table class="tabl" id="tabl">
 
                     <tr class="tabl-description-wrap">
-                        <th class="description month-description">Месяц</th>
-                        <th class="description body-description">Тело</th>
-                        <th class="description percent-description">Процент</th>
-                        <th class="description result-payment-description">Платеж</th>
+                        <th class="description month-description">Місяць</th>
+                        <th class="description body-description">Тіло</th>
+                        <th class="description percent-description">Відсоток</th>
+                        <th class="description result-payment-description">Платіж</th>
                     </tr>
 
                 </table>
