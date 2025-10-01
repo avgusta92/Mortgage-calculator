@@ -121,10 +121,6 @@ function calculator(inputPercentsArray) {
               const resultMonthPercent = bal * r;
               const resultMonthBody = resultMonthPayment - resultMonthPercent;
 
-              if (m === 11) {
-                debugger;
-                }
-
               bal -= resultMonthBody;
               result.push({
                 'resultMonthPercent': resultMonthPercent,
