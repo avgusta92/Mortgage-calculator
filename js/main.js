@@ -132,6 +132,8 @@ function calculator(inputPercentsArray) {
           }
         }
     } else if (creditType === 'credit-type-differential') {
+        let resultMonthBody = resultYearBody / resultMonthsValue;
+
         for (let year = 0; year < inputYears; year++) {
             let percentForYear = checkboxPercentInput
                 ? inputPercentsArray[year]
