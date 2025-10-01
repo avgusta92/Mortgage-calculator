@@ -96,35 +96,65 @@ function inputPercentsArray() {
 function calculator(inputPercentsArray) {
     let result = [];
 
-    let inputPrice = Number(document.getElementById('input-price').value);
-    let inputDownPayment = Number(document.getElementById('input-down-payment').value);
-    let inputYears = Number(document.getElementById('input-years').value);
+    const inputPrice = Number(document.getElementById('input-price').value);
+    const inputDownPayment = Number(document.getElementById('input-down-payment').value);
+    const inputYears = Number(document.getElementById('input-years').value);
+    const checkboxPercentInput = document.getElementById('checkbox-percent-input').checked;
+    const creditType = document.querySelector('input[name="credit-type"]:checked').id;
 
     let resultYearBody = inputPrice - inputDownPayment;
     let resultMonthsValue = inputYears * 12;
-    let resultMonthBody = resultYearBody / resultMonthsValue;
 
-    for (let years = 0; years < inputYears; years++) {
+    if (creditType === 'credit-type-annuity') {
+        const mrate = apr => (apr / 100) / 12;
+        const pay = (S, r, k) => r ? S * (r * (1 + r) ** k) / ((1 + r) ** k - 1) : S / k;
+      
+        if (Array.isArray(inputPercentsArray)) {
+          let bal = resultYearBody;
+          let made = 0;
 
-        let percentForYear = document.getElementById('checkbox-percent-input').checked
-            ? inputPercentsArray[years]
-            : inputPercentsArray[0];
-        let percentForMonth = (percentForYear / 12) / 100;
+          for (let y = 0; y < inputYears; y++) {
+            const r = mrate(inputPercentsArray[0]);
+            const resultMonthPayment = pay(bal, r, resultMonthsValue - made);
 
-        for (let month = 0; month < 12; month++) {
+            for (let m = 0; m < 12 && made < resultMonthsValue; m++) {
+              const resultMonthPercent = bal * r;
+              const resultMonthBody = resultMonthPayment - resultMonthPercent;
 
-            let resultMonthPercent = resultYearBody * percentForMonth;
-            let resultMonthPayment = resultMonthBody + resultMonthPercent;
+              if (m === 11) {
+                debugger;
+                }
 
-            result.push({
+              bal -= resultMonthBody;
+              result.push({
                 'resultMonthPercent': resultMonthPercent,
                 'resultMonthBody': resultMonthBody,
                 'resultMonthPayment': resultMonthPayment
-            })
-
-            resultYearBody -= resultMonthBody;
+              });
+              made++;
+            }
+          }
         }
-
+    } else if (creditType === 'credit-type-differential') {
+        for (let year = 0; year < inputYears; year++) {
+            let percentForYear = checkboxPercentInput
+                ? inputPercentsArray[year]
+                : inputPercentsArray[0];
+            let percentForMonth = (percentForYear / 12) / 100;
+    
+            for (let month = 0; month < 12; month++) {
+                let resultMonthPercent = resultYearBody * percentForMonth;
+                let resultMonthPayment = resultMonthBody + resultMonthPercent;
+    
+                result.push({
+                    'resultMonthPercent': resultMonthPercent,
+                    'resultMonthBody': resultMonthBody,
+                    'resultMonthPayment': resultMonthPayment
+                })
+    
+                resultYearBody -= resultMonthBody;
+            }
+        }
     }
 
     return result;
